@@ -90,8 +90,8 @@ CamelCase та описові назви: Дотримання назв клас
 ВИСНОВКИ
 
 Розробили та отримали навички з проектування серверної частини проекту за темою: «Програмна система для розумної парковки для безпілотних ваговозів». Отримали навички з проектування діаграми прецедентів, ER-діаграми, діаграми пакетів та діаграми розгортання. У ході роботи були спроектовані база даних та реалізована серверна частина системи. 
-Посилання на відео YouTube: https://drive.google.com/file/d/15kAmxwj_QkZlMvHx4x34vSF0t-dIt04X/view?usp=sharing
-Посилання на код GitHub: https://drive.google.com/file/d/1Jb1Jgy7MTxxsxj5gBdJFX5wSrVrojVcv/view?usp=sharing
+Посилання на відео YouTube: https://www.youtube.com/watch?v=tEolsaRqgww
+Посилання на код GitHub: https://github.com/NureKazantsevaSofiia/apz-pzpi-21-5-kazantseva-sofiia/tree/main/Task2
 
 ДОДАТОК А
 Специфікація REST
