@@ -1,0 +1,54 @@
+<br><br>
+<div *ngIf="LoginService.isTruckManager()">
+  <div>
+    <label>{{ 'msg14' | translate }}:
+      <input #truckManagerAvatar [placeholder]="'msg14' | translate" id="managerAvatar" type="text"
+             value="{{truckManager?.avatar || ''}}">
+    </label>
+  </div>
+  <hr>
+  <div>
+    <label>{{ 'msg15' | translate }}:
+      <input #truckManagerFirstName [placeholder]="'msg15' | translate" id="managerFirstName" type="text"
+             value="{{truckManager?.firstName}}">
+    </label>
+  </div>
+  <div>
+    <label>{{ 'msg16' | translate }}:
+      <input #truckManagerLastName [placeholder]="'msg16' | translate" id="managerLastName" type="text"
+             value="{{truckManager?.lastName}}">
+    </label>
+  </div>
+  <div style="text-align: center">
+    <button (click)="updateTruckManagerProfile(truckManagerAvatar.value,
+    truckManagerFirstName.value, truckManagerLastName.value)"
+            class="my-btn">{{ 'msg49' | translate }}
+    </button>
+  </div>
+</div>
+<div *ngIf="LoginService.isParkingManager()">
+  <div>
+    <label>{{ 'msg14' | translate }}:
+      <input #managerAvatar [placeholder]="'msg14' | translate" id="managerAvatar2" type="text"
+             value="{{parkingManager?.avatar || ''}}">
+    </label>
+  </div>
+  <hr>
+  <div>
+    <label>{{ 'msg15' | translate }}:
+      <input #managerFirstName [placeholder]="'msg15' | translate" id="managerFirstName2" type="text"
+             value="{{parkingManager?.firstName}}">
+    </label>
+  </div>
+  <div>
+    <label>{{ 'msg16' | translate }}:
+      <input #managerLastName [placeholder]="'msg16' | translate" id="managerLastName2" type="text"
+             value="{{parkingManager?.lastName}}">
+    </label>
+  </div>
+  <div style="text-align: center">
+    <button (click)="updateParkingManagerProfile(managerAvatar.value, managerFirstName.value, managerLastName.value)"
+            class="my-btn">{{ 'msg49' | translate }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,93 @@
+<br><br>
+<div class="container" style="width: 850px">
+  <div class="row">
+    <div class="col-3">
+      <div>
+        <img alt="avatar" class="rounded-circle" height="150" id="thumbnail"
+             ngSrc="{{adminResponse?.avatar || 'https://i.imgur.com/b08hxPY.png'}}"
+             style="object-fit: cover"
+             width="150"/>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="row">
+        <div class="col">
+          <p
+            style="font-size: 22px; margin-top: 20px">{{ adminResponse?.firstName + ' ' + adminResponse?.lastName || 'Name Surname' }}</p>
+        </div>
+      </div>
+      <p style="color: #99a2a2; font-size: 13px">{{ adminResponse?.email || 'Email' }}</p>
+    </div>
+  </div>
+  <br>
+  <div class="float-right">
+    <input #email [placeholder]="'msg1' | translate" style="margin-bottom: 35px" type="email">
+    <button (click)="addAdmin(email.value)" class="my-btn">{{ 'msg2' | translate }}</button>
+  </div>
+  <div *ngIf="LoginService.isChiefAdmin()" class="float-right" style="margin-right: 50px">
+    <input #host [placeholder]="'msg3' | translate" type="text">
+    <button (click)="connect(host.value)" class="my-btn">{{ 'msg4' | translate }}</button>
+  </div>
+  <br>
+  <p style="margin-top: 90px; color: #1cbebe; font-style: italic;">{{ 'msg5' | translate }}</p>
+  <table border="1" class="table table-condensed table-responsive-md" style="width: 100%">
+    <thead>
+    <tr>
+      <th style="width:30%">
+        <a>{{ 'msg6' | translate }}</a>
+      </th>
+      <th style="width:25%">
+        <a>{{ 'msg7' | translate }}</a>
+      </th>
+      <th style="width:30%">
+        <a>{{ 'msg8' | translate }}</a>
+      </th>
+      <th *ngIf="LoginService.isChiefAdmin()" style="width:15%">
+        <a>{{ 'msg9' | translate }}</a>
+      </th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let notAppAdmin of notApprovedAdmins ">
+    <tr>
+      <td>{{ notAppAdmin.email || ' ' }}</td>
+      <td>{{ UtilService.formatDateTime(notAppAdmin.dateOfAdding) || ' ' }}</td>
+      <td>{{ notAppAdmin.addedBy || ' ' }}</td>
+      <td *ngIf="LoginService.isChiefAdmin()">
+        <a (click)="approveAdmin(notAppAdmin.id)" class="approve" title="Approve" type="button">
+          <i class="material-icons green">&#xe86c;</i></a>&emsp;
+        <a (click)="declineAdmin(notAppAdmin.id)" class="decline" title="Decline" type="button">
+          <i class="material-icons red">&#xe5c9;</i></a>&emsp;
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="margin-top: 80px; color: #1cbebe; font-style: italic">{{ 'msg10' | translate }}</p>
+  <table border="1" class="table table-condensed table-responsive-md" style="width: 100%">
+    <thead>
+    <tr>
+      <th style="width:15%">
+      </th>
+      <th style="width:30%">
+        <a>{{ 'msg11' | translate }}</a>
+      </th>
+      <th style="width:30%">
+        <a>{{ 'msg12' | translate }}</a>
+      </th>
+      <th style="width:25%">
+        <a>{{ 'msg13' | translate }}</a>
+      </th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let appAdmin of approvedAdmins">
+    <tr>
+      <td><img alt="img" class="rounded-circle" height="60"
+               ngSrc="{{appAdmin?.avatar || 'https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png'}}"
+               style="object-fit: cover" width="60"/>
+      </td>
+      <td>{{ (appAdmin.firstName || "") + " " + (appAdmin.lastName || "") }}</td>
+      <td>{{ appAdmin.email || ' ' }}</td>
+      <td>{{ UtilService.formatDateTime(appAdmin.dateOfApproving) || ' ' }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

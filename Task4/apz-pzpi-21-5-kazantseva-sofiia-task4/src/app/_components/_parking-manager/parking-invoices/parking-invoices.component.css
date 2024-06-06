@@ -1,0 +1,107 @@
+.btn-choice {
+  appearance: none;
+  margin-top: 10px;
+  font-size: 15px;
+  border: .1em solid #656e6e;
+  padding: .85em 1.5em;
+  color: darkslategray;
+  border-radius: 2em;
+  transition: 1s;
+  background: white;
+
+  &:hover {
+    background: #3e5a5a;
+    border: .1em solid #93afaf;
+    color: #fff;
+  }
+}
+
+.selected {
+  background: #3e5a5a;
+  border: .1em solid #93afaf;
+  color: #fff;
+}
+
+.my-btn-search {
+  appearance: none;
+  margin-top: 10px;
+  font-size: 15px;
+  border: .1em solid #9cfc98;
+  padding: .85em 1.5em;
+  color: black;
+  border-radius: 2em;
+  transition: 1s;
+  background: #9cfc98;
+  width: 100px;
+}
+
+.my-btn-clear {
+  appearance: none;
+  margin-top: 10px;
+  font-size: 15px;
+  border: .1em solid #f57575;
+  padding: .85em 1.5em;
+  color: black;
+  border-radius: 2em;
+  transition: 1s;
+  background: #f57575;
+  width: 100px;
+  margin-left: 10px;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.pagination-controls a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 0 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.pagination-controls span {
+  margin: 0 10px;
+  font-size: 14px;
+}
+
+
+.table {
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #ffffff;
+  border-top: 0.22ch solid #e0e0e0;
+  border-collapse: collapse;
+}
+
+.table th {
+  font-weight: bold;
+  padding: 5px;
+  background: #ffffff;
+  border: none;
+  border-bottom: 2px solid #ffffff;
+  text-align: center;
+}
+
+.table tr {
+  padding: 25px;
+  text-align: center;
+  border: none;
+  background-color: #f7fafa;
+  border-radius: 25px;
+  border-bottom: 20px solid #ffffff;
+}
+
+.blue {
+  margin-left: 15px;
+  color: #1b76d0;
+}

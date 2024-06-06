@@ -1,0 +1,29 @@
+.my-btn {
+  appearance: none;
+  margin-top: 10px;
+  font-size: 17px;
+  border: .2em solid darkslategray;
+  padding: .85em 1.5em;
+  color: #ffffff;
+  border-radius: 2em;
+  transition: 1s;
+  background: darkslategray;
+
+  &:hover, &:focus, &:active {
+    background: #93afaf;
+    border: .2em solid #93afaf;
+    color: #fff;
+  }
+}
+
+label {
+  color: darkslategray;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+input {
+  font-size: 17px;
+  margin-left: 20px;
+  margin-bottom: 17px;
+}

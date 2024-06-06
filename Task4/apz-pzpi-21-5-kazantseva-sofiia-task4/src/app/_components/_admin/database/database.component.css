@@ -1,0 +1,21 @@
+.file-input {
+  display: none;
+}
+
+.my-btn {
+  appearance: none;
+  margin-left: 10px;
+  font-size: 14px;
+  border: .2em solid darkslategray;
+  padding: .80em 1.5em;
+  color: #ffffff;
+  border-radius: 2em;
+  transition: 1s;
+  background: darkslategray;
+
+  &:hover, &:focus, &:active {
+    background: #93afaf;
+    border: .2em solid #93afaf;
+    color: #fff;
+  }
+}

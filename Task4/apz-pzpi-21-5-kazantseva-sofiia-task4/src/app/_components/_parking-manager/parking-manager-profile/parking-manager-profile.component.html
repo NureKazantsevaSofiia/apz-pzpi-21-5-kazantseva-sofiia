@@ -1,0 +1,100 @@
+<br><br>
+<div class="container" style="width: 850px">
+  <div class="row">
+    <div class="col-3">
+      <div>
+        <img alt="avatar" class="rounded-circle" height="150" id="thumbnail"
+             ngSrc="{{manager?.avatar || 'https://i.imgur.com/b08hxPY.png'}}"
+             style="object-fit: cover"
+             width="150"/>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="row">
+        <div class="col">
+          <p
+            style="font-size: 22px; margin-top: 20px">{{ manager?.firstName + ' ' + manager?.lastName || 'Name Surname' }}</p>
+        </div>
+      </div>
+      <p style="color: #99a2a2; font-size: 13px">{{ manager?.email || 'Email' }}</p>
+      <div class="company-container">
+        <img alt="{{manager?.company?.name}} logo" class="company-logo"
+             src="{{manager?.company?.logo || 'https://as1.ftcdn.net/v2/jpg/02/18/69/28/1000_F_218692801_4vJl4SyPHZzvV6eAdHO3UUMf3cFU9mF4.jpg'}}"
+             style="object-fit: cover"/>
+        <span class="company-name">{{ manager?.company?.name }}</span>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-6">
+      <a href="/parking-manager/update" style="color: #696e6e; font-style: italic; cursor: pointer">
+        <i class="fa fa-edit" style="font-size:24px"></i>
+        {{ 'msg87' | translate }}</a>
+    </div>
+    <div class="col-6 text-end">
+      <a (click)="showPopup()" style="color: #cb0606; font-style: italic; cursor: pointer;">
+        <i class="fa fa-trash" style="font-size:24px"></i>
+        {{ 'msg88' | translate }}</a>
+    </div>
+    <div class="overlay" id="popup" style="display: none">
+      <div class="popup">
+        <p>{{ 'msg89' | translate }}</p>
+        <div class="text-right">
+          <button (click)="hidePopup()" class="btn btn-cancel">{{ 'msg37' | translate }}</button>
+          <button (click)="deleteProfile()" class="btn btn-primary"
+                  style="background: #cb1a2b; border-color: #cb1a2b">{{ 'msg38' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>
+<br>
+<button (click)="createPlace()" class="my-btn">{{ 'msg90' | translate }}</button>
+<br>
+<p style="margin-top: 60px; margin-bottom: 15px; color: #1cbebe; font-style: italic;">
+  {{ 'msg91' | translate }}
+</p>
+<div class="row">
+  <table border="1" class="table table-condensed table-responsive-md" style="font-size: 14px">
+    <thead>
+    <tr>
+      <th style="width:25%">
+        <a>{{ 'msg92' | translate }}</a>
+      </th>
+      <th style="width:20%">
+        <a>{{ 'msg93' | translate }}</a>
+      </th>
+      <th style="width:25%">
+        <a>{{ 'msg94' | translate }}</a>
+      </th>
+      <th style="width:30%">
+        <a>{{ 'msg95' | translate }}</a>
+      </th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let place of places?.content">
+    <tr>
+      <td>{{ place.address }}</td>
+      <td>{{ place.hourlyPay }}</td>
+      <td>{{ place.parkingManagerEmail }}</td>
+      <td class="actions" data-th="">
+        <a (click)="openPlace(place.id)" title="more info" type="button">
+          <i class="material-icons blue">&#xe88e;</i></a>&emsp;
+        <a (click)="updatePlace(place.id)" title="update" type="button">
+          <i class="material-icons green">&#xe3c9;</i></a>&emsp;
+        <a (click)="deletePlace(place.id)" title="delete" type="button">
+          <i class="material-icons red">&#xe872;</i></a>&emsp;
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div class="pagination-controls">
+  <a (click)="changePage(currentPage - 1)" title="previous" type="button"><i
+    class="material-icons dark">&#xe5e0;</i></a>
+  <span>{{ currentPage }} of {{ totalPages }}</span>
+  <a (click)="changePage(currentPage + 1)" title="next" type="button"><i class="material-icons dark">&#xe5e1;</i></a>
+</div>

@@ -1,0 +1,48 @@
+<br><br>
+<div class="container" style="width: 850px">
+  <p style="font-size: 15px">Last update: {{ UtilService.getTodayDate() || '00.00.0000 00:00' }} </p>
+  <div>
+    <h6 style="margin-top: 40px; margin-bottom: 30px; text-align: center;">{{ 'msg39' | translate }}</h6>
+  </div>
+  <br>
+  <table border="1" class="table table-condensed table-responsive-md" style="font-size: 15px">
+    <thead>
+    <tr>
+      <th style="width:10%">
+      </th>
+      <th style="width:40%">
+        <a>{{ 'msg33' | translate }}</a>
+      </th>
+      <th style="width:30%">
+        <a>{{ 'msg34' | translate }}</a>
+      </th>
+      <th style="width:20%">
+        <a>{{ 'msg35' | translate }}</a>
+      </th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let manager of managers">
+    <tr>
+      <td><img alt="img" class="rounded-circle" height="60"
+               ngSrc="{{manager.avatar || 'https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png'}}"
+               style="object-fit: cover" width="60"/></td>
+      <td>{{ (manager.firstName || "") + " " + (manager.lastName || "") }}</td>
+      <td>{{ manager.email || "" }}</td>
+      <td><a (click)="showPopup(manager.id)" class="delete" title="Delete" type="button">
+        <i class="material-icons red">&#xe872;</i></a>&emsp;
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div class="overlay" id="popup" style="display: none">
+  <div class="popup">
+    <p>{{ 'msg40' | translate }}</p>
+    <div class="text-right">
+      <button (click)="hidePopup()" class="btn btn-cancel">{{ 'msg37' | translate }}</button>
+      <button (click)="deleteManager()" class="btn btn-primary"
+              style="background: #cb1a2b; border-color: #cb1a2b">{{ 'msg38' | translate }}
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,104 @@
+<br><br>
+<h5 style="text-align: center">{{ 'msg50' | translate }}</h5>
+<br>
+<div style="width: 600px">
+  <div>
+    <label>{{ 'msg51' | translate }}:</label> {{ invoice?.type!.replace('_', ' ').toLowerCase() || '' }}
+  </div>
+  <hr>
+  <div>
+    <label>{{ 'msg52' | translate }}:</label> {{ invoice?.truckNumber || '' }}
+  </div>
+  <div>
+    <label>{{ 'msg53' | translate }}:</label> {{ invoice?.truckManagerEmail || '' }}
+  </div>
+  <hr>
+  <div>
+    <label>{{ 'msg54' | translate }}:</label> {{ invoice?.placeNumber || '' }}
+  </div>
+  <div>
+    <label>{{ 'msg55' | translate }}:</label> {{ invoice?.parkingManagerEmail || '' }}
+  </div>
+  <hr>
+  <div>
+    <label>{{ 'msg56' | translate }}:</label> {{ UtilService.formatDateTime(invoice?.creationDate) || '' }}
+  </div>
+  <div>
+    <label>{{ 'msg57' | translate }}:</label> {{ invoice?.description || '' }}
+  </div>
+</div>
+<div *ngIf="invoice?.items!.length > 0">
+  <div>
+    <label>{{ 'msg58' | translate }}:</label>
+  </div>
+  <table border="1" class="table table-condensed table-responsive-md" style="font-size: 14px">
+    <thead>
+    <tr>
+      <th style="width:20%">
+        <a>{{ 'msg59' | translate }}</a>
+      </th>
+      <th style="width:15%">
+        <a>{{ 'msg60' | translate }}</a>
+      </th>
+      <th style="width:15%">
+        <a>{{ 'msg61' | translate }}</a>
+      </th>
+      <th style="width:10%">
+        <a>{{ 'msg62' | translate }}</a>
+      </th>
+      <th style="width:20%">
+        <a>{{ 'msg63' | translate }}</a>
+      </th>
+      <th style="width:20%">
+        <a>{{ 'msg64' | translate }}</a>
+      </th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let item of invoice?.items">
+    <tr>
+      <td>{{ item.name }}</td>
+      <td>{{ item.weight | number: '1.2-2' }}</td>
+      <td>{{ item.price | number: '1.2-2' }}</td>
+      <td>{{ item.amount }}</td>
+      <td>{{ item.totalWeight | number: '1.2-2' }}</td>
+      <td>{{ item.totalPrice | number: '1.2-2' }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<hr>
+<div>
+  <label>Price:</label> {{ invoice?.price | number: '1.2-2' }}
+</div>
+<div *ngIf="!invoice?.signedByParkingManager">
+  <label>{{ 'msg65' | translate }}:</label>
+  <i class="material-icons grey">&#xea5b;</i> {{ 'msg66' | translate }}
+</div>
+<div *ngIf="invoice?.signedByParkingManager">
+  <label>{{ 'msg65' | translate }}:</label>
+  <i class="material-icons green">&#xe86c;</i> (
+  {{ UtilService.formatDateTime(invoice?.signedByParkingManagerDate) || '' }}
+  )
+</div>
+<div *ngIf="!invoice?.signedByTruckManager">
+  <label>{{ 'msg67' | translate }}:</label>
+  <i class="material-icons grey">&#xea5b;</i> {{ 'msg66' | translate }}
+</div>
+<div *ngIf="invoice?.signedByTruckManager">
+  <label>{{ 'msg67' | translate }}:</label>
+  <i class="material-icons green">&#xe86c;</i> (
+  {{ UtilService.formatDateTime(invoice?.signedByTruckManagerDate) || '' }}
+  )
+</div>
+<div *ngIf="!invoice?.signedByTruckManager && invoice?.signedByParkingManager" style="text-align: center;">
+  <button (click)="signInvoice(invoice?.id!)"
+          class="my-btn">{{ 'msg68' | translate }}
+  </button>
+</div>
+<div *ngIf="invoice?.signedByParkingManager && invoice?.signedByTruckManager " style="text-align: center;">
+  <button (click)="exportInvoice(invoice?.id!)"
+          class="my-btn">{{ 'msg69' | translate }}
+  </button>
+</div>
+<br>
+<br>

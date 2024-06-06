@@ -1,0 +1,64 @@
+<div class="container" style="width: 850px">
+  <p
+    style="margin-top: 30px; margin-bottom: 30px; font-style: italic; font-size: 13px; color: gray">{{ 'msg21' | translate }}</p>
+  <div class="row">
+    <div class="col-6">
+      <button (click)="exportDatabase()" class="my-btn">{{ 'msg22' | translate }}</button>
+    </div>
+    <div class="col-6 float-right">
+      <div class="row">
+
+        <div class="col-6">
+          <input #fileUpload (change)="onFileSelected($event)"
+                 class="file-input" type="file">
+          <div class="file-upload">
+            {{ fileName || "No file uploaded yet." }}
+            <button (click)="fileUpload.click()" class="upload-btn" color="" mat-mini-fab>
+              <mat-icon>attach_file</mat-icon>
+            </button>
+          </div>
+        </div>
+        <div class="col-6">
+          <button (click)="importDatabase()" class="my-btn">{{ 'msg23' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <p style="margin-top: 30px; margin-bottom: 30px; font-style: italic; font-size: 13px; color: gray">
+    {{ 'msg24' | translate }}
+  </p>
+  <button (click)="generateWeekDatabaseReport()" class="my-btn">{{ 'msg25' | translate }}</button>
+  <button (click)="generateMonthDatabaseReport()" class="my-btn">{{ 'msg26' | translate }}</button>
+
+  <p style="margin-top: 50px; color: #1cbebe; font-style: italic">{{ 'msg27' | translate }}</p>
+  <p style="margin-top: 30px; font-style: italic; font-size: 13px; color: gray">
+    {{ startOfCurrentWeek + ' - ' + endOfCurrentWeek }}</p>
+  <table border="1" class="table table-condensed table-responsive-md" style="width: 100%; font-size: 15px">
+    <thead>
+    <tr>
+      <th style="width:30%">
+        <a>{{ 'msg28' | translate }}</a>
+      </th>
+      <th style="width:25%">
+        <a>{{ 'msg29' | translate }}</a>
+      </th>
+      <th style="width:25%">
+        <a>{{ 'msg30' | translate }}</a>
+      </th>
+      <th style="width:20%">
+        <a>{{ 'msg31' | translate }}</a>
+      </th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let historyRecord of databaseHistory">
+    <tr>
+      <td>{{ historyRecord.adminEmail || ' ' }}</td>
+      <td>{{ UtilService.formatDate(historyRecord.time) || ' ' }}</td>
+      <td>{{ UtilService.formatTime(historyRecord.time) || ' ' }}</td>
+      <td>{{ historyRecord.operation.toLowerCase().replace("_", " ") || ' ' }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

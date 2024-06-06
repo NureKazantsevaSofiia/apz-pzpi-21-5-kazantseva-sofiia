@@ -1,0 +1,48 @@
+<header>
+  <div class="my-navbar">
+    <a class="link" href="/">{{ 'msg121' | translate }}</a>
+    <div *ngIf="!LoginService.isAuthorize()">
+      <a class="link" href="/login">{{ 'msg41' | translate }}</a>
+    </div>
+    <div *ngIf="!LoginService.isAuthorize()">
+      <a class="link" href="/register">{{ 'msg48' | translate }}</a>
+    </div>
+    <div *ngIf="LoginService.isAdmin()">
+      <a class="link" href="/admin-profile">{{ 'msg122' | translate }}</a>
+    </div>
+    <div *ngIf="LoginService.isTruckManager()">
+      <a class="link" href="/truck-manager">{{ 'msg122' | translate }}</a>
+    </div>
+    <div *ngIf="LoginService.isParkingManager()">
+      <a class="link" href="/parking-manager">{{ 'msg122' | translate }}</a>
+    </div>
+    <div *ngIf="LoginService.isTruckManager()">
+      <a class="link" href="/truck-manager/invoices">{{ 'msg123' | translate }}</a>
+    </div>
+    <div *ngIf="LoginService.isParkingManager()">
+      <a class="link" href="/parking-manager/invoices">{{ 'msg123' | translate }}</a>
+    </div>
+    <div *ngIf="LoginService.isAdmin()">
+      <a class="link" href="/truck-managers">{{ 'msg39' | translate }}</a>
+    </div>
+    <div *ngIf="LoginService.isAdmin()">
+      <a class="link" href="/parking-managers">{{ 'msg32' | translate }}</a>
+    </div>
+    <div *ngIf="LoginService.isChiefAdmin()">
+      <a class="link" href="/database">{{ 'msg124' | translate }}</a>
+    </div>
+    <div (click)="logout()" *ngIf="LoginService.isAuthorize()">
+      <a class="link" href="/login">{{ 'msg125' | translate }}</a>
+    </div>
+    <div>
+      <button (click)="switchLanguage('en')">{{ 'msg126' | translate }}</button>
+      <button (click)="switchLanguage('uk')">{{ 'msg127' | translate }}</button>
+    </div>
+  </div>
+</header>
+<div class="my-container">
+  <router-outlet></router-outlet>
+</div>
+<div class="alert" id="alert" style="display: none">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+</div>

@@ -1,0 +1,82 @@
+<br><br>
+<div class="container" style="width: 1050px">
+  <p style="font-size: 15px">{{ 'msg71' | translate }}: {{ UtilService.getTodayDate() || '00.00.0000 00:00' }} </p>
+  <div>
+    <h6 style="margin-top: 40px; margin-bottom: 30px; text-align: center;">{{ 'msg72' | translate }}</h6>
+  </div>
+  <br>
+  <button (click)="createInvoice()" class="my-btn-2">{{ 'msg117' | translate }}</button>
+  <br><br>
+  <div style="margin-left: 30px">
+    <button (click)="getAllInvoices()" class="btn-choice selected" id="1btn">{{ 'msg73' | translate }}</button>
+    <button (click)="getNotSignedByParkInvoices()" class="btn-choice" id="2btn"
+            style="margin-left: 10px">{{ 'msg74' | translate }}
+    </button>
+    <button (click)="getNotSignedByTrInvoices()" class="btn-choice" id="3btn"
+            style="margin-left: 10px">{{ 'msg75' | translate }}
+    </button>
+    <button (click)="getSignedInvoices()" class="btn-choice" id="4btn"
+            style="margin-left: 10px">{{ 'msg76' | translate }}
+    </button>
+  </div>
+  <br>
+  <div id="dateFilter" style="margin-left: 40px; display: block">
+    <label for="placeNumber" style="margin-left: 10px; font-weight: bold; font-size: 17px">
+      {{ 'msg118' | translate }}:
+    </label>
+    <input #truckNumber id="placeNumber" name="placeNumber" style="margin-left: 10px; margin-right: 10px" type="text"/>
+
+    <button (click)="search(truckNumber.value)" class="my-btn-search">{{ 'msg78' | translate }}</button>
+    <button (click)="clear()" class="my-btn-clear">{{ 'msg79' | translate }}</button>
+  </div>
+  <br>
+  <br>
+  <table border="1" class="table table-condensed table-responsive-md" style="font-size: 14px">
+    <thead>
+    <tr>
+      <th style="width:15%">
+        <a>{{ 'msg80' | translate }}</a>
+      </th>
+      <th style="width:15%">
+        <a>{{ 'msg81' | translate }}</a>
+      </th>
+      <th style="width:15%">
+        <a>{{ 'msg82' | translate }}</a>
+      </th>
+      <th style="width:15%">
+        <a>{{ 'msg83' | translate }}</a>
+      </th>
+      <th style="width:20%">
+        <a>{{ 'msg84' | translate }}</a>
+      </th>
+      <th style="width:10%">
+        <a>{{ 'msg85' | translate }}</a>
+      </th>
+      <th style="width:10%">
+        <a>{{ 'msg86' | translate }}</a>
+      </th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let invoice of invoices?.content">
+    <tr>
+      <td>{{ invoice.type.replace("_", " ").toLowerCase() }}</td>
+      <td>{{ invoice.truckNumber }}</td>
+      <td>{{ invoice.placeNumber }}</td>
+      <td>{{ invoice.truckManagerEmail }}</td>
+      <td>{{ UtilService.formatDateTime(invoice.creationDate) }}</td>
+      <td>{{ invoice.price | number: '1.2-2' }}</td>
+      <td class="actions" data-th="">
+        <a (click)="openInvoice(invoice.id)" title="more info" type="button">
+          <i class="material-icons blue">&#xe88e;</i></a>&emsp;
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination-controls">
+    <a (click)="changePage(currentPage - 1)" title="previous" type="button"><i
+      class="material-icons dark">&#xe5e0;</i></a>
+    <span>{{ currentPage }} of {{ totalPages }}</span>
+    <a (click)="changePage(currentPage + 1)" title="next" type="button"><i class="material-icons dark">&#xe5e1;</i></a>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<br><br>
+<div class="container" style="margin: auto; text-align: center">
+  <div>
+    <h5 style="text-align: center;">{{ 'msg41' | translate }}</h5>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div>
+    <div>
+      <input #email [placeholder]="'msg34' | translate" id="email" type="email">
+    </div>
+    <div>
+      <input #password [placeholder]="'msg42' | translate" id="password" type="password">
+    </div>
+  </div>
+  <br>
+  <div style="text-align: center;">
+    <input (click)="login(email.value, password.value)" [value]="'msg41' | translate" type="button">
+  </div>
+</div>

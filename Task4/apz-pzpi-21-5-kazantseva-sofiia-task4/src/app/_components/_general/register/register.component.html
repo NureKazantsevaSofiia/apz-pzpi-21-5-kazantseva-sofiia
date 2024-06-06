@@ -1,0 +1,48 @@
+<br><br>
+<div style="text-align: center;">
+  <h5>{{ 'msg43' | translate }}</h5>
+</div>
+<div id="registerRole" style="text-align: center; margin-top: 75px; display: block;">
+  <div>
+    <h6>{{ 'msg44' | translate }}</h6>
+  </div>
+  <div>
+    <input (click)="registerTruckManager()" [value]="'msg45' | translate" type="button">
+  </div>
+  <div>
+    <input (click)="registerParkingManager()" [value]="'msg46' | translate" type="button">
+  </div>
+</div>
+<br>
+<div id="registerForm" style="text-align: center; display: none">
+  <div class="row">
+    <div>
+      <input #firstName [placeholder]="'msg15' | translate" id="firstName" type="text">
+    </div>
+    <div>
+      <input #lastName [placeholder]="'msg16' | translate" id="lastName" type="text">
+    </div>
+    <div>
+      <input #email [placeholder]="'msg34' | translate" id="email" type="email">
+    </div>
+    <div>
+      <input #password [placeholder]="'msg42' | translate" id="password" type="password">
+    </div>
+    <div>
+      <input (focus)="openAutocomplete()" [formControl]="dataControl" [matAutocomplete]="auto" [placeholder]="'msg47' | translate"
+             matInput
+             type="text">
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event.option.value)"
+                        [displayWith]="displayFn">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{ option.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </div>
+  </div>
+  <br> <br>
+  <div>
+    <input (click)="register(firstName.value, lastName.value, email.value, password.value)"
+           [value]="'msg48' | translate" type="button">
+  </div>
+</div>

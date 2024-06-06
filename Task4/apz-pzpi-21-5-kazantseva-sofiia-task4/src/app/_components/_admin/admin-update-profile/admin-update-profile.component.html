@@ -1,0 +1,30 @@
+<br><br>
+<div style="text-align: center;">
+  <h5>{{ 'msg20' | translate }}</h5>
+</div>
+<br>
+<div style="text-align: center;">
+  <div class="row">
+    <div>
+      <input #avatar [placeholder]="'msg14' | translate" id="avatar" type="url">
+    </div>
+    <div>
+      <input #firstName [placeholder]="'msg15' | translate" id="firstName" type="text">
+    </div>
+    <div>
+      <input #lastName [placeholder]="'msg16' | translate" id="lastName" type="text">
+    </div>
+    <div>
+      <input #password [placeholder]="'msg17' | translate" id="password" type="password">
+    </div>
+  </div>
+</div>
+<div style="text-align: center; margin-top: 75px">
+  <div>
+    <p style="color: #a2a4a4; font-style: italic; font-size: 12px">{{ 'msg18' | translate }}</p>
+  </div>
+  <div>
+    <input (click)="updateAdmin(avatar.value, firstName.value, lastName.value, password.value)"
+           [value]="'msg19' | translate" type="button">
+  </div>
+</div>

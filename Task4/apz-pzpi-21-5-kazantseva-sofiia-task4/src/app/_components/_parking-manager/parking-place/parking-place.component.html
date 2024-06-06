@@ -1,0 +1,54 @@
+<br><br>
+<h5 style="text-align: center">{{ 'msg96' | translate }}</h5>
+<br>
+<div>
+  <button (click)="updatePlaceByIot()"
+          class="my-btn">{{ 'msg97' | translate }}
+  </button>
+</div>
+<br>
+<div style="width: 600px">
+  <div>
+    <label>{{ 'msg98' | translate }}:</label> {{ place?.placeNumber || '' }}
+  </div>
+  <div>
+    <label>{{ 'msg99' | translate }}:</label> {{ place?.address || '' }}
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-6">
+      <label>{{ 'msg100' | translate }}:</label> {{ place?.minWidth | number: '1.2-2' }}
+    </div>
+    <div class="col-6">
+      <label>{{ 'msg101' | translate }}:</label> {{ place?.maxWidth | number: '1.2-2' }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <label>{{ 'msg102' | translate }}:</label> {{ place?.minLength | number: '1.2-2' }}
+    </div>
+    <div class="col-6">
+      <label>{{ 'msg103' | translate }}:</label> {{ place?.maxLength | number: '1.2-2' }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <label>{{ 'msg104' | translate }}:</label> {{ place?.minHeight | number: '1.2-2' }}
+    </div>
+    <div class="col-6">
+      <label>{{ 'msg105' | translate }}:</label> {{ place?.maxHeight | number: '1.2-2' }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <label>{{ 'msg106' | translate }}:</label> {{ place?.minWeight | number: '1.2-2' }}
+    </div>
+    <div class="col-6">
+      <label>{{ 'msg107' | translate }}:</label> {{ place?.maxWeight | number: '1.2-2' }}
+    </div>
+  </div>
+  <hr>
+  <div>
+    <label>{{ 'msg108' | translate }}:</label> {{ place?.hourlyPay | number: '1.2-2' }}
+  </div>
+</div>

@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.my-navbar {
+  background-color: darkslategray;
+  padding: 30px 50px;
+  display: flex;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  font-size: 14pt;
+  font-weight: bold;
+  margin-right: 32px;
+}
+
+
+input[type=button] {
+  appearance: none;
+  margin-top: 75px;
+  font-size: 17px;
+  border: .2em solid darkslategray;
+  padding: .85em 1.5em;
+  color: #ffffff;
+  border-radius: 2em;
+  transition: 1s;
+  background: darkslategray;
+
+  &:hover, &:focus, &:active {
+    background: #93afaf;
+    border: .2em solid #93afaf;
+    color: #fff;
+  }
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

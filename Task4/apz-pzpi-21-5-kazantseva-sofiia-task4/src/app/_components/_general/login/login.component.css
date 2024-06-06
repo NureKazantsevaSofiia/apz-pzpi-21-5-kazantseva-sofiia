@@ -1,0 +1,63 @@
+input[type=email] {
+  appearance: none;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  border-bottom: .2em solid darkslategray;
+  border-radius: .2em .2em 0 0;
+  padding: .4em;
+  color: darkslategray;
+}
+
+input[type=password] {
+  appearance: none;
+  font-size: 17px;
+  border: none;
+  outline: none;
+  border-bottom: .2em solid darkslategray;
+  border-radius: .2em .2em 0 0;
+  padding: .4em;
+  color: darkslategray;
+  margin-top: 35px;
+}
+
+input[type=button] {
+  appearance: none;
+  margin-top: 75px;
+  font-size: 17px;
+  border: .2em solid darkslategray;
+  padding: .85em 1.5em;
+  color: #ffffff;
+  border-radius: 2em;
+  transition: 1s;
+  background: darkslategray;
+
+  &:hover, &:focus, &:active {
+    background: #93afaf;
+    border: .2em solid #93afaf;
+    color: #fff;
+  }
+}
+
+.google-btn {
+  background: white;
+  margin-top: 35px;
+  border-radius: 30px;
+  border-color: #e8e8e8;
+  border-width: 1px;
+  height: 60px;
+  width: 220px;
+  border-style: solid;
+  text-align: center;
+  align-content: center;
+}
+
+.google-btn:hover {
+  background: #e8e8e8;
+  color: white;
+}
+
+.url-design {
+  color: black;
+  text-decoration: none;
+}
