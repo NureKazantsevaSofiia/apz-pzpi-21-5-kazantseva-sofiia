@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fontFamily="sans-serif-thin"
+    tools:context=".ui.activity.invoice.InvoicesPage">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/light_green">
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:layout_scrollFlags="scroll|enterAlways">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="25dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/searchField"
+                        android:layout_width="200dp"
+                        android:layout_height="50dp"
+                        android:background="@color/white"
+                        android:importantForAutofill="no"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/searchButton"
+                            android:layout_width="60dp"
+                            android:layout_height="30dp"
+                            android:background="@color/white"
+                            android:clickable="true"
+                            android:contentDescription="@string/msg33"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/search" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@color/white"
+                            android:gravity="center_horizontal"
+                            android:text="@string/msg34"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/resetButton"
+                            android:layout_width="60dp"
+                            android:layout_height="30dp"
+                            android:background="@color/white"
+                            android:clickable="true"
+                            android:contentDescription="@string/msg14"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/undo" />
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="25dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@color/white"
+                            android:gravity="center_horizontal"
+                            android:text="@string/msg35"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            app:tabGravity="center"
+            app:tabMode="scrollable">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/all"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/msg36" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/notSignedByPark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/msg37" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/notSignedByTruck"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/msg38" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/signed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/msg39" />
+        </com.google.android.material.tabs.TabLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:isScrollContainer="true"
+                android:scrollbarAlwaysDrawHorizontalTrack="true"
+                android:scrollbarAlwaysDrawVerticalTrack="true">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycle_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp" />
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/trucks"
+        android:icon="@drawable/truck"
+        android:title="@string/msg9" />
+
+    <item
+        android:id="@+id/invoices"
+        android:icon="@drawable/invoice"
+        android:title="@string/msg10" />
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/user"
+        android:title="@string/msg11" />
+</menu>
